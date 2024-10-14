@@ -1,4 +1,4 @@
-# Bresenham's_circle_mudpoint_algorithm
+# Bresenham's_circle_midpoint_algorithm
 
 #include<graphics.h>
 #include<conio.h>
