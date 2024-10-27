@@ -1,12 +1,12 @@
 #include <graphics.h>  
 #include <conio.h>
-#include <iostream>
-#include <cmath>  // For abs() and round() functions
+#include <iostream.h>
+#include <math.h>  // For abs() and round() functions
 
 using namespace std;
 
 void drawLineDDA(int x1, int y1, int x2, int y2) {
-    // Calculate the differences
+    
     int dx = x2 - x1;
     int dy = y2 - y1;
 
@@ -42,7 +42,7 @@ int main() {
 
     drawLineDDA(x1, y1, x2, y2);  // Call the DDA line drawing function
 
-    getch();  // Wait for user to press a key
+    getch();  
     closegraph();  // Close the graphics window
     return 0;
 }
