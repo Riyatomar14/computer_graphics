@@ -1,40 +1,44 @@
-Bresenham's line drawing algorithm 
+#include <iostream>
+#include <graphics.h>  
+#include <conio.h>
 
-#include<iostream.h>
-#include<graphics.h>
-#include<conio.h>
-#include<dos.h>
+using namespace std;
 
-int main()
-{
-    int gd= DETECT,gm;
-    initgraph(&gd,&gm," ");
-    int x1,y1,x2,y2,dx,dy,p;
-    cin >> x1 >> y1;
-    cin >> x2 >> y2;
-    cout<<"the value of x1 and y1"<<x1<<y1<<endl;
-    cout<<"the value of x2 and y2"<<x2<<y2<<endl;
-    dx = x2 - x1;
-    dy = y2 - y1;
-    p = (2*dy) - dx;
-    putpixel(x1,y2,10);
-    while(x1<=x2)
-    {
-	      if(p < 0)
-	      {
-	         x1++;
-	         p = p + (2*dy);
-      	}
-	      else
-	      {
-	         x1++;
-	         y1++;
-	         p =p + (2*dy) - (2*dx);
-	      }
-	      putpixel(x1,y1,10);
-	      delay(10);
+void drawLineBresenham(int x1, int y1, int x2, int y2) {
+    int dx = x2 - x1;
+    int dy = y2 - y1;
+    int p = 2 * dy - dx;
+    
+    putpixel(x1, y1, 10);  // Draw the starting pixel
+    
+    while (x1 <= x2) {
+        x1++;
+        
+        if (p < 0) {
+            p += 2 * dy;
+        } else {
+            y1++;
+            p += 2 * (dy - dx);
+        }
+        
+        putpixel(x1, y1, 10);  // Draw each pixel
+        delay(10);  // Optional delay for animation effect
     }
+}
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "");  // Graphics initialization
+
+    int x1, y1, x2, y2;
+    cout << "Enter the coordinates of the starting point (x1, y1): ";
+    cin >> x1 >> y1;
+    cout << "Enter the coordinates of the ending point (x2, y2): ";
+    cin >> x2 >> y2;
+
+    drawLineBresenham(x1, y1, x2, y2);  // Call the Bresenham line function
+
     getch();
-    closegraph();
+    closegraph();  // Close the graphics window
     return 0;
 }
