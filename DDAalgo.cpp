@@ -1,48 +1,39 @@
-#include <graphics.h>  
-#include <conio.h>
 #include <iostream.h>
-#include <math.h>  // For abs() and round() functions
+#include <graphics.h>
+#include <conio.h>
+#include <dos.h>
+#include <math.h>
 
-using namespace std;
-
-void drawLineDDA(int x1, int y1, int x2, int y2) {
-    
-    int dx = x2 - x1;
-    int dy = y2 - y1;
-
-    // Calculate the number of steps needed for generating pixels
-    int steps = max(abs(dx), abs(dy));
-
-    // Calculate the increment in x & y for each step
-    float xInc = dx / (float) steps;
-    float yInc = dy / (float) steps;
-
-    // Initialize starting point
-    float x = x1;
-    float y = y1;
-
-    // Put pixels for each step
-    for (int i = 0; i <= steps; i++) {
-        putpixel(round(x), round(y), WHITE);  // Draw pixel at the current point
-        x += xInc;  // Increment x
-        y += yInc;  // Increment y
-        delay(10);  // Optional delay for visualization
-    }
-}
-
-int main() {
+void main() {
     int gd = DETECT, gm;
-    initgraph(&gd, &gm, "");  // Initialize graphics mode
+    initgraph(&gd, &gm," ");  
 
-    int x1, y1, x2, y2;
+    int x1, y1, x2, y2, dx, dy, steps,xinc, yinc;
+    
     cout << "Enter the starting point (x1, y1): ";
     cin >> x1 >> y1;
     cout << "Enter the ending point (x2, y2): ";
     cin >> x2 >> y2;
 
-    drawLineDDA(x1, y1, x2, y2);  // Call the DDA line drawing function
+    dx = x2 - x1;
+    dy = y2 - y1;
 
-    getch();  
-    closegraph();  // Close the graphics window
-    return 0;
+    if(abs(dx)>abs(dy)){
+       steps=abs(dx);
+    }
+    else{
+        steps=abs(dy);
+    }
+
+    xinc = dx / steps;
+    yinc = dy / steps;
+
+    for (int i = 0; i <= steps; i++) {
+        putpixel(x1, y1, 3);  
+        x1 += xinc;
+        y1 += yinc;
+            
+    }
+    getch();
+    closegraph();
 }
