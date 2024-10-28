@@ -8,10 +8,12 @@ int main()
     int gd= DETECT,gm;
     initgraph(&gd,&gm," ");
     int x1,y1,x2,y2,dx,dy,p;
+    cout<<"enter the value of x1,y1"<<endl;
     cin >> x1 >> y1;
+    cout<<"enter the value of x2,y2"<<endl;
     cin >> x2 >> y2;
-    cout<<"the value of x1 and y1"<<x1<<y1<<endl;
-    cout<<"the value of x2 and y2"<<x2<<y2<<endl;
+    cout<<"the value of x1 and y1 "<<x1<<" and "<<y1<<endl;
+    cout<<"the value of x2 and y2 "<<x2<<" and "<<y2<<endl;
     dx = x2 - x1;
     dy = y2 - y1;
     p = (2*dy) - dx;
