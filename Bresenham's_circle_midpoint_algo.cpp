@@ -40,3 +40,7 @@ do
 getch();
 closegraph();
 }
+}while(x<y);
+getch();
+closegraph();
+}
