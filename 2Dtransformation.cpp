@@ -1,9 +1,9 @@
 #include <iostream.h>
 #include <graphics.h>
 #include <math.h>
-#include<conio.h>
+#include <conio.h>
 
-int main() {
+void main() {
     int gd = DETECT, gm, ch, tx, ty, theta, sx, sy;
     initgraph(&gd, &gm, "");
 
@@ -14,7 +14,7 @@ int main() {
     cout << "Enter your choice: ";
     cin >> ch;
 
-    switch (ch) {
+      switch (ch) {
         case 1: {
             cout << "It's Translation" << endl;
             rectangle(200, 200, 300, 300);
@@ -56,8 +56,8 @@ int main() {
         }
     }
 
-    cin.get(); // Pause the screen
+    getch();
     closegraph();
 
-    return 0;
-}
+    }
+
