@@ -27,12 +27,14 @@ int main() {
     a[n][1] = a[0][1];
 
     // Initialize graphics mode
+    detectgraph(&gd,&gm);
     initgraph(&gd, &gm, "");
 
     // Draw the polygon edges
     for (i = 0; i < n; i++) {
         line(a[i][0], a[i][1], a[i + 1][0], a[i + 1][1]);
     }
+    getch();
 
     // Calculate slopes of each edge
     for (i = 0; i < n; i++) {
@@ -71,6 +73,7 @@ int main() {
                 }
             }
         }
+	setcolor(RED);
 
         // Draw horizontal lines between pairs of intersections
         for (i = 0; i < k; i += 2) {
